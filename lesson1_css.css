@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
-/* ƒy[ƒW‘S‘Ìİ’è */
+/* ãƒšãƒ¼ã‚¸å…¨ä½“è¨­å®š */
 body{
     margin: 0;
     background-color: #000000;
     color: #ffffff;
-    font-family: "Helvetica Neue", "ƒqƒ‰ƒMƒmŠpƒS ProN", Meiryo, sans-serif;
+    font-family: "Helvetica Neue", "ãƒ’ãƒ©ã‚®ãƒè§’ã‚´ ProN", Meiryo, sans-serif;
 }
 
-/* ƒ^ƒCƒgƒ‹(h1)İ’è */
+/* ã‚¿ã‚¤ãƒˆãƒ«(h1)è¨­å®š */
 h1{
     text-align: center;
     color: #00aaff;
@@ -16,22 +16,22 @@ h1{
     font-size: 2em;
 }
 
-/* ƒL[ƒ[ƒh‚ğ‹­’² */
+/* ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’å¼·èª¿ */
 .keyword{
     color: #ff3333;
     font-weight: bold;
 }
 
-/* ‰æ‘œ”wŒi */
+/* ç”»åƒèƒŒæ™¯ */
 img{
     display: block;
-    margin: 20px auto;
+    margin: 20px 0 20px 20px;
     padding: 10px;
     background-color: #00aa00;
     border-radius: 8px;
 }
 
-/* ‚à‚Ç‚éƒŠƒ“ƒN—pƒ{ƒ^ƒ“ */
+/* ã‚‚ã©ã‚‹ãƒªãƒ³ã‚¯ç”¨ãƒœã‚¿ãƒ³ */
 .back-btn{
     color: #ffffff;
     text-decoration: none;
@@ -47,4 +47,5 @@ img{
 }
 .back-btn:active{
     transform: translateY(1px);
+
 }
