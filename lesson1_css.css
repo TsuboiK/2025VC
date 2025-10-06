@@ -3,8 +3,8 @@
 /* ページ全体設定 */
 body{
     margin: 0;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     font-family: "Helvetica Neue", "ヒラギノ角ゴ ProN", Meiryo, sans-serif;
 }
 
@@ -49,3 +49,4 @@ img{
     transform: translateY(1px);
 
 }
+
