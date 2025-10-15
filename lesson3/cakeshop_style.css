@@ -136,3 +136,25 @@ h1{
 .desc{
 	margin: 10px 0 0;
 }
+
+.back-btn {
+	position: left;
+	margin-top: 40px;
+}
+
+.back-btn a {
+	display: inline-block;
+	background-color: #800000;
+	color: #ffffff;
+	text-decoration: none;
+	padding: 12px 24px;
+	border-radius: 8px;
+	font-size: 1rem;
+	transition: all 0.2s ease;
+	box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.back-btn a:hover { /* 試験的 */
+  background-color: #a00000;
+  transform: translateY(-2px);
+}
