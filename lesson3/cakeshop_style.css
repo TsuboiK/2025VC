@@ -98,8 +98,8 @@ h1{
 /* 二列固定 */
 .grid{
 	display: grid;
-  grid-template-columns: repeat(2, minmax(340px, 1fr)); /* 1カラム最低340px */
-  gap: 16px;
+	grid-template-columns: 50% 50%;  /* 二列固定（DW互換） */
+	gap: 16px;
 }
 /* 最小全体幅を明示（= 340*2 + 16 = 696px + パディング分） */
 html, body { min-width: 720px; }   /* ここは構成に合わせて調整 */
@@ -159,5 +159,4 @@ html, body { min-width: 720px; }   /* ここは構成に合わせて調整 */
 .back-btn a:hover { /* 試験的 */
   background-color: #a00000;
   transform: translateY(-2px);
-
 }
