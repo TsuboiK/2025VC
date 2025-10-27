@@ -1,0 +1,131 @@
+/* 書式の統一 */
+body{
+	font-fami: "游ゴシック", "Yu Gothic", "メイリオ", "Meiryo", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	color: #333;
+}
+
+/* メニュー全体を囲むdiv */
+#menu{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+/* メイン部分 */
+main{
+	padding-top: 35px;
+	padding-left: 16px;
+	padding-right: 16px;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/* メニューバー */
+ul.ddmenu{
+	margin: 0;
+	padding: 0 0 0 15px;
+	background-color: #cc0000;
+	white-space: nowrap; /* 折り返し防止 */
+}
+
+/* メニュー項目 */
+ul.ddmenu > li{
+	display: inline-block;
+	position: relative;
+	list-style: none;
+}
+
+/* メニューリンク */
+ul.ddmenu > li > a{
+	display: block;
+	width: 140px;
+	color: #fff;
+	background-color: #cc0000;
+	text-align: center;
+	line-height: 40px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* ホバー */
+ul.ddmenu > li > a:hover,
+ul.ddmenu > li:focus-within > a {
+	background-color: #ffdddd;
+	color: #cc0000;
+}
+
+/* サブメニュー */
+ul.ddmenu li ul{
+	display: none;
+	position: absolute;
+	top: 40px;
+	left: 0;
+	margin: 0;
+	padding: 6px 0;
+	min-width: 180px;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+	z-index: 999;
+}
+
+/* サブメニュー項目 */
+ul.ddmenu li ul li{
+	display: block;
+	list-style: none;
+}
+
+/* サブメニュー表示 */
+ul.ddmenu li:hover ul{
+	display: block;
+	padding: 10px 14px;
+	color: #333;
+	background: #fff;
+	text-align: left;
+	line-height: 1.4;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+/* サブメニューのホバー */
+ul.ddmenu li ul a:hover,
+ul.ddmenu li ul a:focus {
+	background: #ffeded;
+	color: #cc0000;
+}
+
+/* ホバーで開く */
+ul.ddmenu li:hover > ul {
+	display: block;
+}
+
+/* 矢印 */
+ul.ddmenu > li > a.has-sub::after {
+	content: "▾";
+	margin-left: 6px;
+	font-size: 0.9em;
+}
+
+/* 戻るボタン */
+a.back{
+	display: inline-block;
+	background-color: #cc0000;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 20px;
+	margin-top: 20px;
+	transition: background-color 0.2s, color 0.2s;
+}
+
+/* ホバー時の色変化 */
+a.back:hover{
+	background-color: #ffdddd;
+	color: #cc0000;
+}
