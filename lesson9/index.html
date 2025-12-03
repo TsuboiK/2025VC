@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>フォトギャラリー</title>
+
+    <!-- スマホ対応 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery & jQuery UI (CDN) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <style>
+        /* 全体のベーススタイル */
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* タブ領域 */
+        #photo-tabs {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            padding: 0.5rem 1rem 1rem;
+            box-sizing: border-box;
+        }
+
+        #photo-tabs .ui-tabs-nav {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1rem;
+        }
+
+        .tab-content {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .tab-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .tab-photo {
+            flex: 1 1 260px;
+            text-align: center;
+        }
+
+        .tab-text {
+            flex: 1 1 260px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .tab-text h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .open-dialog {
+            margin-top: 0.8rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            border: none;
+            background: #1976d2;
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .open-dialog:hover {
+            opacity: 0.85;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0 1.5rem;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* レスポンシブ：スマホでは縦並び寄せ */
+        @media screen and (max-width: 640px) {
+            .tab-content {
+                flex-direction: column;
+            }
+
+            main {
+                padding: 0.5rem;
+            }
+
+            #photo-tabs {
+                padding: 0.5rem;
+            }
+        }
+
+        /* もどるリンク用ボタン */
+        .back-btn {
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #00aaff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.08s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #0077cc;
+        }
+
+        .back-btn:active {
+            transform: translateY(1px);
+
+        }
+    </style>
+
+    <script>
+        // ページ読み込み後にjQuery UIを初期化
+        $(function () {
+            // タブを有効化
+            $("#photo-tabs").tabs();
+
+            // 「拡大表示」ボタンでダイアログを表示
+            $(".open-dialog").on("click", function () {
+                var target = $(this).data("target");
+                $(target).dialog({
+                    modal: true,
+                    width: "auto",
+                    maxWidth: 800,
+                    resizable: false
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>フォトギャラリー - チームラボと水族館</h1>
+    </header>
+
+    <main>
+        <p class="intro">
+            jQuery UI のタブとダイアログを使ったシンプルなギャラリーです。<br>
+            上のタブで写真を切り替え、「拡大表示」ボタンで大きく表示できます。
+        </p>
+
+        <!-- jQuery UI タブ -->
+        <div id="photo-tabs">
+            <ul>
+                <li><a href="#tab-teamlab">チームラボ</a></li>
+                <li><a href="#tab-aquarium">水族館</a></li>
+            </ul>
+
+            <!-- ▼ タブ1：チームラボ -->
+            <div id="tab-teamlab" class="tab-content">
+                <div class="tab-photo">
+                    <img src="teamlab.jpg" alt="チームラボの写真">
+                    <button class="open-dialog" data-target="#dialog-teamlab">
+                        拡大表示
+                    </button>
+                </div>
+                <div class="tab-text">
+                    <h2>チームラボ</h2>
+                    <p>
+                        デジタルアート空間「チームラボ」で撮影した一枚です。<br>
+                    </p>
+                </div>
+            </div>
+
+            <!-- ▼ タブ2：水族館 -->
+            <div id="tab-aquarium" class="tab-content">
+                <div class="tab-photo">
+                    <img src="aquarium.jpg" alt="水族館の写真">
+                    <button class="open-dialog" data-target="#dialog-aquarium">
+                        拡大表示
+                    </button>
+                </div>
+                <div class="tab-text">
+                    <h2>水族館</h2>
+                    <p>
+                        水族館で撮影した写真です。<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p><a href="../index.html" class="back-btn">もどる</a></p>
+    </main>
+
+    <footer>
+        &copy; 2025 My jQuery Photo Gallery
+    </footer>
+
+    <!-- ▼ ダイアログ用の隠し要素（jQuery UI Dialog） -->
+
+    <!-- チームラボ拡大表示 -->
+    <div id="dialog-teamlab" title="チームラボ - 拡大表示" style="display:none;">
+        <img src="teamlab.jpg" alt="チームラボ（拡大）" style="max-width:100%;height:auto;display:block;">
+        <p style="margin-top:0.5rem;font-size:0.9rem;color:#555;">
+            チームラボで撮影した写真を拡大表示しています。<br>
+        </p>
+    </div>
+
+    <!-- 水族館拡大表示 -->
+    <div id="dialog-aquarium" title="水族館 - 拡大表示" style="display:none;">
+        <img src="aquarium.jpg" alt="水族館（拡大）" style="max-width:100%;height:auto;display:block;">
+        <p style="margin-top:0.5rem;font-size:0.9rem;color:#555;">
+            水族館の写真を拡大表示しています。<br>
+        </p>
+    </div>
+</body>
+
+</html>
